@@ -28,21 +28,20 @@
 
 bool_t hydroCheckButtons(bool_t * tempUnit);
 
-void hydroCalcFEM(uart_t * my_uart, hydro_state_t * st_hydro_calc,
-		delay_t * delay) {
+void hydroCalcFEM(uart_t * my_uart, hydro_state_t * st_hydro_calc, delay_t * delay) {
 
 	bool_t temp_unit;
 	bool_t new_button;
 	uint16_t adc_measure = 0;
 	double temp_measure = 0;
+	delayConfig(delay, HYDRODELAY);
 
-	led_on(LED1);
-	led_on(LEDB);
+	led_on(LED3);
 
 	if (delayRead(delay)) {
 		switch (*st_hydro_calc) {
 		case STATE_IDLE:
-			led_off(LEDB);
+			led_off(LED3);
 			led_on(LED1);
 			// se espera algun boton
 			new_button = hydroCheckButtons(&temp_unit);

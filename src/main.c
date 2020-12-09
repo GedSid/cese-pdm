@@ -9,19 +9,18 @@
 #include "measurement.h"
 #include "communication.h"
 
-
-int main( void ){
+int main(void) {
 
 	uart_t my_uart;
 	delay_t delay;
 	hydro_state_t st_hydro_calc = STATE_IDLE;
 	// ----- Setup -----------------------------------
 	measurementeConfig();
-	communicationConfig( & my_uart, UART_USB, 115200 );
+	communicationConfig(&my_uart, UART_USB, 115200);
 
 	// ----- Repeat for ever -------------------------
-	while( TRUE ) {
-			hydroCalcFEM( & my_uart, & st_hydro_calc, & delay );
+	while (TRUE) {
+		hydroCalcFEM(&my_uart, &st_hydro_calc, &delay);
 	}
 
 	// YOU NEVER REACH HERE, because this program runs directly or on a

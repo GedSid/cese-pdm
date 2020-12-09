@@ -34,7 +34,6 @@ void hydroCalcFEM(uart_t * my_uart, hydro_state_t * st_hydro_calc, delay_t * del
 	bool_t new_button;
 	uint16_t adc_measure = 0;
 	double temp_measure = 0;
-	delayConfig(delay, HYDRODELAY);
 
 	led_on(LED3);
 

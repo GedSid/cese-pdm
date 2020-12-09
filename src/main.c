@@ -17,6 +17,7 @@ int main(void) {
 	// ----- Setup -----------------------------------
 	measurementeConfig();
 	communicationConfig(&my_uart, UART_USB, 115200);
+	delayConfig(&delay, 100);
 
 	// ----- Repeat for ever -------------------------
 	while (TRUE) {
